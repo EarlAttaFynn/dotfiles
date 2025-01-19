@@ -5,6 +5,7 @@ alias vzsh='nvim ~/.zshrc'
 alias vzsha='nvim ~/dotfiles/zsh/.zsh_aliases'
 alias vil='nvim ~/dotfiles/nvim/.config/nvim/init.lua'
 alias vilp='nvim ~/dotfiles/nvim/.config/nvim/lua/custom/plugins/init.lua'
+alias vsc='nvim ~/dotfiles/starship/starship.toml'
 
 ce() {
 cd $1 && exa --show-symlinks --icons=always --color=always --sort=modified -la
