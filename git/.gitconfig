@@ -1,0 +1,19 @@
+[init]
+	defaultBranch = main
+[user]
+	name = Earl Atta-Fynn
+	email = earl.atta.fynn@gmail.com
+[core]
+	editor = nvim
+[push]
+	autoSetupRemote = true
+[alias]
+  st = status
+  ci = commit
+  co = checkout
+  br = branch
+  lg = log --pretty=format:'%C(yellow)%h%Creset %C(cyan)%ad%Creset %C(white)%s%Creset %C(red)%d%Creset' --date=short
+
+[pull]
+  rebase = true
+

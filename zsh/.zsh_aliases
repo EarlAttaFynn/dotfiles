@@ -1,0 +1,11 @@
+alias ls='exa --show-symlinks --icons=always --color=always -la'
+alias vim='nvim'
+alias vi='nvim'
+alias vzsh='nvim ~/.zshrc'
+alias vzsha='nvim ~/dotfiles/zsh/.zsh_aliases'
+alias vil='nvim ~/dotfiles/nvim/.config/nvim/init.lua'
+alias vilp='nvim ~/dotfiles/nvim/.config/nvim/lua/custom/plugins/init.lua'
+
+ce() {
+cd $1 && exa --show-symlinks --icons=always --color=always --sort=modified -la
+}
