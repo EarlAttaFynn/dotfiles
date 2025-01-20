@@ -1,8 +1,8 @@
 #rpm-ostree
 alias ro='rpm-ostree'
 alias ros='rpm-ostree status'
-alias ls='exa --show-symlinks --icons=always --color=always -la'
-#NVIM
+alias ls='exa --show-symlinks --icons=always --color=always -Gla'
+#edit configuration files
 alias vim='nvim'
 alias vi='nvim'
 alias vzsh='nvim ~/.zshrc'
@@ -11,12 +11,19 @@ alias vzenv='nvim ~/dotfiles/zsh/.zshenv'
 alias vil='nvim ~/dotfiles/nvim/.config/nvim/init.lua'
 alias vilp='nvim ~/dotfiles/nvim/.config/nvim/lua/custom/plugins/init.lua'
 alias vsc='nvim ~/dotfiles/starship/.config/starship.toml'
+alias vgc='nvim ~/dotfiles/ghostty/.config/ghostty/config'
+#Hyprland
+alias vhc='nvim ~/.config/hypr/hyprland.conf'
+alias vhm='nvim ~/.config/hypr/conf/monitor.conf'
+alias vhb='nvim ~/.config/hypr/conf/binds.conf'
+
+
 # Distrobox / Toolbox
 alias dbx='distrobox'
 alias de='distrobox enter'
 
 # user-defined functions
 ce() {
-cd $1 && exa --show-symlinks --icons=always --color=always --sort=modified -la
+cd $1 && exa --show-symlinks --icons=always --color=always --sort=modified -Gla
 }
 
