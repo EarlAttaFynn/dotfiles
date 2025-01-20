@@ -15,12 +15,10 @@ zstyle :compinstall filename '/var/home/eattafynn/.zshrc'
 autoload -Uz compinit
 compinit
 # End of lines added by compinstall
-#
-#
-# Set up fzf key bindings and fuzzy completion
+
+# Manually load plugins
 source <(fzf --zsh)
-#
-#Aliases
+source ~/dotfiles/zsh/.zsh/plugins/zsh-vi-mode/zsh-vi-mode.plugin.zsh
 source ~/dotfiles/zsh/.zsh_aliases
 # Initialize starship prompt
 eval "$(starship init zsh)"
@@ -31,3 +29,5 @@ fastfetch
 # Initialize ssh agent
 eval "$(ssh-agent -s)"
 
+# start z directory jump script
+source ~/.local/share/z/z.sh

@@ -1,12 +1,22 @@
+#rpm-ostree
+alias ro='rpm-ostree'
+alias ros='rpm-ostree status'
 alias ls='exa --show-symlinks --icons=always --color=always -la'
+#NVIM
 alias vim='nvim'
 alias vi='nvim'
 alias vzsh='nvim ~/.zshrc'
 alias vzsha='nvim ~/dotfiles/zsh/.zsh_aliases'
+alias vzenv='nvim ~/dotfiles/zsh/.zshenv'
 alias vil='nvim ~/dotfiles/nvim/.config/nvim/init.lua'
 alias vilp='nvim ~/dotfiles/nvim/.config/nvim/lua/custom/plugins/init.lua'
-alias vsc='nvim ~/dotfiles/starship/starship.toml'
+alias vsc='nvim ~/dotfiles/starship/.config/starship.toml'
+# Distrobox / Toolbox
+alias dbx='distrobox'
+alias de='distrobox enter'
 
+# user-defined functions
 ce() {
 cd $1 && exa --show-symlinks --icons=always --color=always --sort=modified -la
 }
+
