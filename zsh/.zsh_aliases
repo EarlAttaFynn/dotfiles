@@ -13,6 +13,7 @@ alias vilp='nvim ~/dotfiles/nvim/.config/nvim/lua/custom/plugins/init.lua'
 alias vsc='nvim ~/dotfiles/starship/.config/starship.toml'
 alias vgc='nvim ~/dotfiles/ghostty/.config/ghostty/config'
 #Hyprland
+alias hctl='hyprctl'
 alias vhc='nvim ~/.config/hypr/hyprland.conf'
 alias vhm='nvim ~/.config/hypr/conf/monitor.conf'
 alias vhb='nvim ~/.config/hypr/conf/binds.conf'
@@ -27,3 +28,12 @@ ce() {
 cd $1 && exa --show-symlinks --icons=always --color=always --sort=modified -Gla
 }
 
+# yazi file explorer
+function y() {
+	local tmp="$(mktemp -t "yazi-cwd.XXXXXX")" cwd
+	yazi "$@" --cwd-file="$tmp"
+	if cwd="$(command cat -- "$tmp")" && [ -n "$cwd" ] && [ "$cwd" != "$PWD" ]; then
+		builtin cd -- "$cwd"
+	fi
+	rm -f -- "$tmp"
+}
