@@ -28,6 +28,17 @@ ce() {
 cd $1 && exa --show-symlinks --icons=always --color=always --sort=modified -Gla
 }
 
+# Set dbus session on per app basis in distrobox
+# Unsure of proper format, first option seems to work but not fully tested
+# Second option in the format the variable has on the host
+set-session-bus() {
+echo 'DBUS_SESSION_BUS_ADDRESS=unix:///run/host/run/dbus/system_bus_socket'
+# echo 'DBUS_SESSION_BUS_ADDRESS=unix:path=/run/host/run/dbus/system_bus_socket'
+}
+
+# Set system bus; not sure this is needed, still figuring out best way to expose bus in container
+# set-system-bus() { }
+
 # yazi file explorer
 function y() {
 	local tmp="$(mktemp -t "yazi-cwd.XXXXXX")" cwd
