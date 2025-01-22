@@ -1,7 +1,7 @@
 #rpm-ostree
 alias ro='rpm-ostree'
 alias ros='rpm-ostree status'
-alias ls='exa --show-symlinks --icons=always --color=always -Gla'
+alias ls='eza --show-symlinks --icons=always --color=always -Gla'
 #edit configuration files
 alias vim='nvim'
 alias vi='nvim'
@@ -18,14 +18,16 @@ alias vhc='nvim ~/.config/hypr/hyprland.conf'
 alias vhm='nvim ~/.config/hypr/conf/monitor.conf'
 alias vhb='nvim ~/.config/hypr/conf/binds.conf'
 
-
 # Distrobox / Toolbox
 alias dbx='distrobox'
 alias de='distrobox enter'
 
+
+alias fu='sudo $(fc -ln -1)'
+
 # user-defined functions
 ce() {
-cd $1 && exa --show-symlinks --icons=always --color=always --sort=modified -Gla
+cd $1 && eza --show-symlinks --icons=always --color=always --sort=modified -Gla
 }
 
 # Set dbus session on per app basis in distrobox

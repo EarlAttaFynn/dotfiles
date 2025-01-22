@@ -17,3 +17,9 @@
 [pull]
   rebase = true
 
+[diff]
+    tool = nvimdiff
+[merge]
+    tool = nvimdiff
+[difftool]
+    prompt = false

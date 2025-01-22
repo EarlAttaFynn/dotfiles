@@ -1,3 +1,7 @@
+#######################
+# .zshrc
+# #####################
+
 # Lines configured by zsh-newuser-install
 HISTFILE=~/.histfile
 HISTSIZE=1000
@@ -19,11 +23,15 @@ compinit
 # Manually load plugins
 source <(fzf --zsh)
 source ~/dotfiles/zsh/.zsh/plugins/zsh-vi-mode/zsh-vi-mode.plugin.zsh
+source ~/dotfiles/zsh/.zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.plugin.zsh
+
+# Aliases
 source ~/dotfiles/zsh/.zsh_aliases
+
 # Initialize starship prompt
 eval "$(starship init zsh)"
 
-# fastfetch
+# fastfetch for status
 fastfetch
 
 # Initialize ssh agent
