@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/usr/bin/env bash
 
 # Start logging
 log_dir="/tmp/auto-wallpaper"
@@ -31,46 +31,50 @@ create_wallpaper_list() {
   # Find and shuffle the wallpaper files
   find -L "$wallpaper_dir" -type f | shuf > "$wallpaper_list_file"
 }
-
-# Check if the directory has changed since last cached
-if [ ! -f "$wallpaper_list_file" ] || [ ! -f "$wallpaper_dir_timestamp_file" ] || [ "$(stat -c %Y "$wallpaper_dir")" -gt "$(cat "$wallpaper_dir_timestamp_file")" ]; then
-  # Create or update the list if directory has changed
   create_wallpaper_list
-  # Update the timestamp file with the current time of the wallpaper directory
-  stat -c %Y "$wallpaper_dir" > "$wallpaper_dir_timestamp_file"
-else
-  log "Using cached wallpaper list from '$wallpaper_list_file'."
-fi
-
+# Read wallpaper list into an array
+# wallpapers=()
+# while IFS= read -r line; do
+#     wallpapers+=("$line")
+# done < "$wallpaper_list_file"
+readarray -t wallpapers < "$wallpaper_list_file"
 # Infinite loop for changing wallpapers
 while true; do
   log "Selecting wallpapers randomly..."
 
-  # Read the wallpaper list from the file
-  wallpapers=$(shuf "$wallpaper_list_file")
-
-  # Split shuffled list into unique groups
-  wallpaper1=$(echo "$wallpapers" | head -n 3 | tr '\n' ',' | sed 's/,$//')
-  wallpaper2=$(echo "$wallpapers" | head -n 6 | tail -n 3 | tr '\n' ',' | sed 's/,$//')
-  wallpaper3=$(echo "$wallpapers" | head -n 9 | tail -n 3 | tr '\n' ',' | sed 's/,$//')
-
+  # Select 3 unique random wallpapers from the array
+  mapfile -t selected_wallpapers < <(shuf -e "${wallpapers[@]}" -n 3)
+  #
+  wallpaper1="${selected_wallpapers[0]}"
+  # wallpaper2="${selected_wallpapers[1]}"
+  # wallpaper3="${selected_wallpapers[2]}"
+  #
   log "Wallpapers selected:"
   log "Wallpaper1: $wallpaper1"
-  log "Wallpaper2: $wallpaper2"
-  log "Wallpaper3: $wallpaper3"
+  # log "Wallpaper2: $wallpaper2"
+  # log "Wallpaper3: $wallpaper3"
 
-  # Preload wallpapers with hyprctl
-  log "Preloading wallpapers with hyprctl..."
-  hyprctl hyprpaper preload "$wallpaper1" 2>&1 | tee -a "$log_file"
-  hyprctl hyprpaper preload "$wallpaper2" 2>&1 | tee -a "$log_file"
-  hyprctl hyprpaper preload "$wallpaper3" 2>&1 | tee -a "$log_file"
+  # Assign same wallpaper to all monitors
+    hyprctl hyprpaper reload ",$wallpaper1"
+  # Assign different wallpapers to attached monitors
+  # i=0
+  # for monitor in $(hyprctl monitors | grep 'Monitor' | awk '{ print $2 }'); do
+  #     wallpaper_path="${selected_wallpapers[$i]}"
+  #
+  #     if [[ -f "$wallpaper_path" ]]; then
+  #
+  #         hyprctl hyprpaper reload "$monitor,$wallpaper_path"
+  #     else
+  #         log "Error: Wallpaper file '$wallpaper_path' does not exist for monitor $monitor."
+  #     fi
+  #
+  #     ((i++))
+  #     if [[ $i -ge ${#selected_wallpapers[@]} ]]; then
+  #         i=0  # Loop back if there are more monitors than selected wallpapers
+  #     fi
+  # done
 
-  # Set wallpapers to outputs
-  log "Setting wallpapers to outputs..."
-  hyprctl hyprpaper wallpaper "eDP-1,$wallpaper1" 2>&1 | tee -a "$log_file"
-  hyprctl hyprpaper wallpaper "DP-2,$wallpaper2" 2>&1 | tee -a "$log_file"
-  hyprctl hyprpaper wallpaper "HDMI-A-1,$wallpaper3" 2>&1 | tee -a "$log_file"
-
-  log "Sleeping for 36 seconds..."
-  sleep 36
+  duration=333
+  log "Sleeping for $duration seconds..."
+  sleep $duration
 done

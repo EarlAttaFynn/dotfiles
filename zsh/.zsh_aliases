@@ -1,7 +1,6 @@
 #rpm-ostree
 alias ro='rpm-ostree'
-alias ros='rpm-ostree status'
-alias ls='eza --show-symlinks --icons=always --color=always -Gla'
+alias ros='rpm-ostree status -v'
 #edit configuration files
 alias vim='nvim'
 alias vi='nvim'
@@ -17,36 +16,52 @@ alias hctl='hyprctl'
 alias vhc='nvim ~/.config/hypr/hyprland.conf'
 alias vhm='nvim ~/.config/hypr/conf/monitor.conf'
 alias vhb='nvim ~/.config/hypr/conf/binds.conf'
-
+# Podman
+alias p='podman'
+alias pps='podman ps'
+# K8s
+alias k='kubectl'
+alias kgp='kubectl get pods'
 # Distrobox / Toolbox
 alias dbx='distrobox'
 alias de='distrobox enter'
-
-
+# Miscellaneous
+alias ls='eza --show-symlinks --icons=always --color=always -Gla'
 alias fu='sudo $(fc -ln -1)'
+alias zzz='systemctl suspend'
+alias fetch='neofetch'
 
-# user-defined functions
+##########################
+# user-defined functions #
+##########################
+# Change directory and list contents
 ce() {
 cd $1 && eza --show-symlinks --icons=always --color=always --sort=modified -Gla
 }
 
-# Set dbus session on per app basis in distrobox
-# Unsure of proper format, first option seems to work but not fully tested
-# Second option in the format the variable has on the host
-set-session-bus() {
-echo 'DBUS_SESSION_BUS_ADDRESS=unix:///run/host/run/dbus/system_bus_socket'
-# echo 'DBUS_SESSION_BUS_ADDRESS=unix:path=/run/host/run/dbus/system_bus_socket'
-}
-
-# Set system bus; not sure this is needed, still figuring out best way to expose bus in container
-# set-system-bus() { }
-
-# yazi file explorer
-function y() {
+# opens yazi file explorer to cwd
+# exit explorer with q to cd to directory or Q to stay put
+    function y() {
 	local tmp="$(mktemp -t "yazi-cwd.XXXXXX")" cwd
 	yazi "$@" --cwd-file="$tmp"
 	if cwd="$(command cat -- "$tmp")" && [ -n "$cwd" ] && [ "$cwd" != "$PWD" ]; then
 		builtin cd -- "$cwd"
 	fi
 	rm -f -- "$tmp"
+}
+
+# Set dbus session on per app basis in distrobox
+# unix:path formulation is more widely used and is the format the variable has on the host
+# URI format is newer and preferred by some apps
+set-session-bus() {
+echo 'DBUS_SESSION_BUS_ADDRESS=unix:path=/run/host/run/dbus/system_bus_socket'
+# echo 'DBUS_SESSION_BUS_ADDRESS=unix:///run/host/run/dbus/system_bus_socket'
+}
+
+# ##########
+# Programs #
+# ########## 
+cord() {
+    cd "$HOME/.local/share/WebCord/" || return
+    nohup npm start > /dev/null 2>&1 &
 }

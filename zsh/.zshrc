@@ -20,8 +20,10 @@ autoload -Uz compinit
 compinit
 # End of lines added by compinstall
 
-# Manually load plugins
+# Autocomplete
 source <(fzf --zsh)
+source <(kubectl completion zsh)
+# Manually load plugins
 source ~/dotfiles/zsh/.zsh/plugins/zsh-vi-mode/zsh-vi-mode.plugin.zsh
 source ~/dotfiles/zsh/.zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.plugin.zsh
 
@@ -35,7 +37,7 @@ eval "$(starship init zsh)"
 fastfetch
 
 # Initialize ssh agent
-eval "$(ssh-agent -s)"
+# eval "$(ssh-agent -s)"
 
 # start z directory jump script
 source ~/.local/share/z/z.sh
