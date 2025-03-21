@@ -26,7 +26,7 @@ alias kgp='kubectl get pods'
 alias dbx='distrobox'
 alias de='distrobox enter'
 # Miscellaneous
-alias ls='eza --show-symlinks --icons=always --color=always -Gla'
+alias ez='eza --show-symlinks --icons=always --color=always -Gla'
 alias fu='sudo $(fc -ln -1)'
 alias zzz='systemctl suspend'
 alias fetch='neofetch'
