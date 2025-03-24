@@ -4,8 +4,8 @@
 export TERM='xterm-256color'
 export EDITOR="nvim"
 export PAGER="less"
-export BAT_PAGER="bat -p"
-export MANPAGER="sh -c 'sed -u -e \"s/\\x1B\[[0-9;]*m//g; s/.\\x08//g\" | bat -p -l man'"
+# export BAT_PAGER="bat -p"
+# export MANPAGER="sh -c 'sed -u -e \"s/\\x1B\[[0-9;]*m//g; s/.\\x08//g\" | bat -p -l man'"
 
 export KIND_EXPERIMENTAL_PROVIDER=podman
 

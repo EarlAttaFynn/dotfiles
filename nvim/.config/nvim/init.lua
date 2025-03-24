@@ -44,16 +44,6 @@ P.S. You can delete this when you're done too. It's your config now :)
 vim.g.mapleader = ' '
 vim.g.maplocalleader = ' '
 
--- Vim options
---
--- Use spaces instead of tabs
-vim.opt.expandtab = true
--- Enable smart indentation
-vim.opt.smartindent = true
--- Set tab width to 2 spaces
-vim.opt.tabstop = 2
-vim.opt.shiftwidth = 2
-
 
 -- [[ Install `lazy.nvim` plugin manager ]]
 --    https://github.com/folke/lazy.nvim
@@ -122,7 +112,24 @@ require('lazy').setup({
       'rafamadriz/friendly-snippets',
     },
   },
-
+  {
+    "christoomey/vim-tmux-navigator",
+    cmd = {
+      "TmuxNavigateLeft",
+      "TmuxNavigateDown",
+      "TmuxNavigateUp",
+      "TmuxNavigateRight",
+      "TmuxNavigatePrevious",
+      "TmuxNavigatorProcessList",
+    },
+    keys = {
+      { "<c-h>",  "<cmd><C-U>TmuxNavigateLeft<cr>" },
+      { "<c-j>",  "<cmd><C-U>TmuxNavigateDown<cr>" },
+      { "<c-k>",  "<cmd><C-U>TmuxNavigateUp<cr>" },
+      { "<c-l>",  "<cmd><C-U>TmuxNavigateRight<cr>" },
+      { "<c-\\>", "<cmd><C-U>TmuxNavigatePrevious<cr>" },
+    },
+  },
   -- Useful plugin to show you pending keybinds.
   { 'folke/which-key.nvim',  opts = {} },
   {
@@ -275,6 +282,10 @@ require('lazy').setup({
   {
     'echasnovski/mini.icons', version = '*'
   },
+  {
+    "aserowy/tmux.nvim",
+  },
+
   -- NOTE: Next Step on Your Neovim Journey: Add/Configure additional "plugins" for kickstart
   --       These are some example plugins that I've included in the kickstart repository.
   --       Uncomment any of the lines below to enable them.
@@ -331,8 +342,22 @@ vim.o.completeopt = 'menuone,noselect'
 -- NOTE: You should make sure your terminal supports this
 vim.o.termguicolors = true
 
--- [[ Basic Keymaps ]]
+-- Use spaces instead of tabs
+vim.opt.expandtab = true
+-- Enable smart indentation
+vim.opt.smartindent = true
+-- Set tab width to 2 spaces
+vim.opt.tabstop = 2
+vim.opt.shiftwidth = 2
 
+-- [[ Basic Keymaps ]]
+-- simpler split switching
+vim.keymap.set('n', '<C-J>', '<C-W><C-J>', { noremap = true })
+vim.keymap.set('n', '<C-K>', '<C-W><C-K>', { noremap = true })
+vim.keymap.set('n', '<C-L>', '<C-W><C-L>', { noremap = true })
+vim.keymap.set('n', '<C-H>', '<C-W><C-H>', { noremap = true })
+-- Escape insert, visual, and select modes with 'kj'
+vim.keymap.set({ 'i', 'v', 's' }, 'kj', '<Esc>', { noremap = true, silent = true })
 -- Keymaps for better default experience
 -- See `:help vim.keymap.set()`
 vim.keymap.set({ 'n', 'v' }, '<Space>', '<Nop>', { silent = true })
@@ -346,6 +371,77 @@ vim.keymap.set('n', '[d', vim.diagnostic.goto_prev, { desc = 'Go to previous dia
 vim.keymap.set('n', ']d', vim.diagnostic.goto_next, { desc = 'Go to next diagnostic message' })
 vim.keymap.set('n', '<leader>e', vim.diagnostic.open_float, { desc = 'Open floating diagnostic message' })
 vim.keymap.set('n', '<leader>q', vim.diagnostic.setloclist, { desc = 'Open diagnostics list' })
+
+-- [[ tmux.nvim ]]
+require("tmux").setup({
+  copy_sync = {
+    -- enables copy sync. by default, all registers are synchronized.
+    -- to control which registers are synced, see the `sync_*` options.
+    enable = true,
+
+    -- ignore specific tmux buffers e.g. buffer0 = true to ignore the
+    -- first buffer or named_buffer_name = true to ignore a named tmux
+    -- buffer with name named_buffer_name :)
+    ignore_buffers = { empty = false },
+
+    -- TMUX >= 3.2: all yanks (and deletes) will get redirected to system
+    -- clipboard by tmux
+    redirect_to_clipboard = true,
+
+    -- offset controls where register sync starts
+    -- e.g. offset 2 lets registers 0 and 1 untouched
+    register_offset = 0,
+
+    -- overwrites vim.g.clipboard to redirect * and + to the system
+    -- clipboard using tmux. If you sync your system clipboard without tmux,
+    -- disable this option!
+    sync_clipboard = false,
+
+    -- synchronizes registers *, +, unnamed, and 0 till 9 with tmux buffers.
+    sync_registers = true,
+
+    -- synchronizes registers when pressing p and P.
+    sync_registers_keymap_put = true,
+
+    -- synchronizes registers when pressing (C-r) and ".
+    sync_registers_keymap_reg = true,
+
+    -- syncs deletes with tmux clipboard as well, it is adviced to
+    -- do so. Nvim does not allow syncing registers 0 and 1 without
+    -- overwriting the unnamed register. Thus, ddp would not be possible.
+    sync_deletes = true,
+
+    -- syncs the unnamed register with the first buffer entry from tmux.
+    sync_unnamed = true,
+  },
+  navigation = {
+    -- cycles to opposite pane while navigating into the border
+    cycle_navigation = true,
+
+    -- enables default keybindings (C-hjkl) for normal mode
+    enable_default_keybindings = true,
+
+    -- prevents unzoom tmux when navigating beyond vim border
+    persist_zoom = false,
+  },
+  resize = {
+    -- enables default keybindings (A-hjkl) for normal mode
+    enable_default_keybindings = true,
+
+    -- sets resize steps for x axis
+    resize_step_x = 1,
+
+    -- sets resize steps for y axis
+    resize_step_y = 1,
+  },
+  swap = {
+    -- cycles to opposite pane while navigating into the border
+    cycle_navigation = false,
+
+    -- enables default keybindings (C-A-hjkl) for normal mode
+    enable_default_keybindings = true,
+  }
+})
 
 -- [[ Highlight on yank ]]
 -- See `:help vim.highlight.on_yank()`
