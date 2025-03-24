@@ -1,5 +1,5 @@
 #rpm-ostree
-alias ro='rpm-ostree'
+alias ro='sudo $(which rpm-ostree)'
 alias ros='rpm-ostree status -v'
 #edit configuration files
 alias vim='nvim'
@@ -11,6 +11,13 @@ alias vil='nvim ~/dotfiles/nvim/.config/nvim/init.lua'
 alias vilp='nvim ~/dotfiles/nvim/.config/nvim/lua/custom/plugins/init.lua'
 alias vsc='nvim ~/dotfiles/starship/.config/starship.toml'
 alias vgc='nvim ~/dotfiles/ghostty/.config/ghostty/config'
+alias vmux='vim ~/dotfiles/tmux/.config/tmux/tmux.conf'
+alias vmzj='vim ~/dotfiles/zellij/.config/zellij/config.kdl'
+#Zellij/Tmux
+alias zj='zellij'
+alias zjw='zellij -l welcome'
+alias zjs='zellij -l strider'
+alias tmxr='tmux source-file ~/.config/tmux/tmux.conf'
 #Hyprland
 alias hctl='hyprctl'
 alias vhc='nvim ~/.config/hypr/hyprland.conf'
