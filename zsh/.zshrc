@@ -38,5 +38,7 @@ fastfetch
 # Initialize ssh agent
 # eval "$(ssh-agent -s)"
 
-# start z directory jump script
-source ~/.local/share/z/z.sh
+# start j directory jump script
+# [[ -f /usr/share/autojump/autojump.zsh ]] && source /usr/share/autojump/autojump.zsh
+# zoxide instead of autojump
+eval "$(zoxide init zsh)"
