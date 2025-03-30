@@ -7,15 +7,10 @@ show_symlink_path = true
 
 # [opener]
 # edit = [
-#   { run = 'nu ~/.config/yazelix/nushell/open_file.nu "$1"', desc = "Open File in a new pane" },
+#   { run = 'bash ~/.config/yazi/open_file.sh "$1"' }
 # ]
 
 [[plugin.prepend_fetchers]]
 id = "git"
 name = "*"
-run = "git"
-
-[[plugin.prepend_fetchers]]
-id = "git"
-name = "*/"
 run = "git"
