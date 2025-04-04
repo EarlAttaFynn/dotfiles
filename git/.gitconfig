@@ -18,10 +18,14 @@
   rebase = true
 
 [diff]
-  tool = nvimdiff
+	tool = nvim
 [merge]
-  tool = nvimdiff
+	tool = nvim
 [difftool]
   prompt = false
 [mergetool "nvimdiff"]
   cmd = nvim -d $LOCAL $REMOTE
+[difftool "nvim"]
+  cmd = nvim -d $LOCAL $REMOTE
+[mergetool "nvim"]
+  cmd = nvim -d $LOCAL $MERGED $REMOTE 
