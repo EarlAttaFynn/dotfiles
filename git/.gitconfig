@@ -15,7 +15,7 @@
   lg = log --pretty=format:'%C(yellow)%h%Creset %C(cyan)%ad%Creset %C(white)%s%Creset %C(red)%d%Creset' --date=short
 
 [pull]
-  rebase = true
+  rebase = false
 
 [diff]
 	tool = nvim
