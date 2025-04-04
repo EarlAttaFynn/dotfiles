@@ -350,6 +350,9 @@ vim.opt.smartindent = true
 vim.opt.tabstop = 2
 vim.opt.shiftwidth = 2
 
+-- Obsidian.nvim requires conceallevel=1||2 to hide syntax marks
+vim.o.conceallevel = 1
+
 -- [[ Basic Keymaps ]]
 -- simpler split switching
 vim.keymap.set('n', '<C-J>', '<C-W><C-J>', { noremap = true })
