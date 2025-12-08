@@ -27,6 +27,29 @@
 *.key
 *.ovpn
 
+# user
+.cfg/
+.cache/
+.cargo/
+.config/bob/
+.config/com.raspberrypi.connect/
+.config/htop/
+.config/labwc/
+.config/lazygit/
+.config/nvim
+.config/systemd/
+.config/zellij/
+.local/
+.pi_connect/
+.profile
+.rustup/
+.ssh/
+.sudo_as_admin_successful
+.terminfo/
+.zcompdump
+.zshrc
+dev/
+
 # --- Development Artifacts ---
 # Node
 node_modules/
@@ -69,4 +92,3 @@ lazy-lock.json   # Optional: Keep this if you want exact plugin versions synced,
 *.img
 *.qcow2
 Downloads/
-.cfg/
