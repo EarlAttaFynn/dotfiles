@@ -1,11 +1,11 @@
+alias update='sudo apt update && sudo apt upgrade -y'
 
 alias ls='eza -Gla'
-
-alias p='python'
 alias zlj='zellij'
 alias v='nvim'
 alias vi='nvim'
 alias vic='nvim $HOME/.config/zsh/'
+
 alias config='/usr/bin/git --git-dir=$HOME/.cfg/ --work-tree=$HOME'
 
 # Cargo

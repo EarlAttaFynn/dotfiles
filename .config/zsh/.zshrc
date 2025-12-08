@@ -3,10 +3,11 @@
 #############################################################
 # All the default Omarchy aliases and functions
 # (don't mess with the sourced file directly, just overwrite configs in this file)
-source ~/.local/share/omarchy/default/bash/aliases
-source ~/.local/share/omarchy/default/bash/envs
-source ~/.local/share/omarchy/default/bash/functions
-
+if [[ -d "$HOME/.local/share/omarchy" ]]; then
+  source ~/.local/share/omarchy/default/bash/aliases
+  source ~/.local/share/omarchy/default/bash/envs
+  source ~/.local/share/omarchy/default/bash/functions
+fi
 
 # ZSH-specific
 source ~/.config/zsh/shell
