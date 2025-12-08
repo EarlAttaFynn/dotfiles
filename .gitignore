@@ -1,0 +1,68 @@
+# --- Global System Junk ---
+.DS_Store
+.directory
+*~
+*.swp
+*.swo
+.Trash/
+
+# --- Security & History (CRITICAL) ---
+# Never track shell history
+.bash_history
+.zsh_history
+.lesshst
+.python_history
+.node_repl_history
+.wget-hsts
+
+# Never track private keys or cloud credentials
+.ssh/id_rsa
+.ssh/id_ed25519
+.ssh/*.pub
+.aws/
+.azure/
+.kube/
+*.pem
+*.key
+*.ovpn
+
+# --- Development Artifacts ---
+# Node
+node_modules/
+npm-debug.log
+yarn-error.log
+
+# Python
+__pycache__/
+*.pyc
+.venv/
+venv/
+.env
+
+# Rust
+target/
+debug/
+
+# Go
+go/bin/
+go/pkg/
+
+# C/C++
+*.o
+*.so
+*.out
+
+# --- Editor Specific (Neovim/LazyVim) ---
+# You track config, but ignore the data/state
+.local/share/nvim/
+.local/state/nvim/
+.cache/nvim/
+Session.vim
+lazy-lock.json   # Optional: Keep this if you want exact plugin versions synced, ignore if you want auto-updates on each machine.
+
+# --- Networking/Misc ---
+*.log
+*.iso
+*.img
+*.qcow2
+Downloads/
