@@ -1,0 +1,1 @@
+/home/fluiddark/.config/omarchy/current/theme/neovim.lua
