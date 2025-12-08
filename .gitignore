@@ -14,6 +14,7 @@
 .python_history
 .node_repl_history
 .wget-hsts
+.histfile
 
 # Never track private keys or cloud credentials
 .ssh/id_rsa
@@ -53,6 +54,8 @@ go/pkg/
 *.out
 
 # --- Editor Specific (Neovim/LazyVim) ---
+# don't want to track config under home location for versatility
+.config/nvim/
 # You track config, but ignore the data/state
 .local/share/nvim/
 .local/state/nvim/
@@ -66,3 +69,4 @@ lazy-lock.json   # Optional: Keep this if you want exact plugin versions synced,
 *.img
 *.qcow2
 Downloads/
+.cfg/
