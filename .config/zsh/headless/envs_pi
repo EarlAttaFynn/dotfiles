@@ -1,5 +1,7 @@
-
+# ZSHENVS for raspberry pi
+export PATH=$HOME/.local/bin:$PATH
 export TERM=xterm-256color
 
+. "$HOME/.cargo/env"
+. "/home/icarus/.local/share/bob/env/env.sh"
 
-export PATH=$HOME/.local/bin:$PATH
