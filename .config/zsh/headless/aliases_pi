@@ -13,6 +13,7 @@ alias cfga='cfg add'
 alias cfgc='cfg commit -m'
 alias cfgp='cfg push'
 
+alias rm='trash-put'
 # Cargo
 alias cr='cargo run'
 

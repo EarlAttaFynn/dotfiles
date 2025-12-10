@@ -7,4 +7,5 @@ source ~/.config/zsh/headless/aliases_pi
 
 source ~/.local/share/zsh-vi-mode/zsh-vi-mode.plugin.zsh
 
-export EDITOR=nvim
+alias docker='sudo docker'
+export EDITOR=vim
