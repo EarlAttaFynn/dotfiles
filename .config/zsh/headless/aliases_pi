@@ -1,0 +1,20 @@
+alias update='sudo apt update && sudo apt upgrade -y'
+
+alias ls='eza -Gla'
+alias zlj='zellij'
+alias v='nvim'
+alias vi='nvim'
+alias vic='nvim $HOME/.config/zsh/'
+
+alias config='/usr/bin/git --git-dir=$HOME/.cfg/ --work-tree=$HOME'
+alias cfg='/usr/bin/git --git-dir=$HOME/.cfg/ --work-tree=$HOME'
+alias cfgs='cfg status'
+alias cfga='cfg add'
+alias cfgc='cfg commit -m'
+alias cfgp='cfg push'
+
+alias rm='trash-put'
+# Cargo
+alias cr='cargo run'
+
+

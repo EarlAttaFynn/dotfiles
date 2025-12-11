@@ -1,0 +1,11 @@
+source ~/.config/zsh/prompt
+source ~/.config/zsh/functions
+
+source ~/.config/zsh/headless/shell_pi
+source ~/.config/zsh/headless/envs_pi
+source ~/.config/zsh/headless/aliases_pi
+
+source ~/.local/share/zsh-vi-mode/zsh-vi-mode.plugin.zsh
+
+alias docker='sudo docker'
+export EDITOR=vim

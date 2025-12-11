@@ -1,4 +1,6 @@
 
+alias ls='eza -Gla'
+
 alias p='python'
 alias zlj='zellij'
 alias v='nvim'

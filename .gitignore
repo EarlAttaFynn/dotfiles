@@ -14,6 +14,7 @@
 .python_history
 .node_repl_history
 .wget-hsts
+.histfile
 
 # Never track private keys or cloud credentials
 .ssh/id_rsa
@@ -25,6 +26,29 @@
 *.pem
 *.key
 *.ovpn
+
+# user
+.cfg/
+.cache/
+.cargo/
+.config/bob/
+.config/com.raspberrypi.connect/
+.config/htop/
+.config/labwc/
+.config/lazygit/
+.config/nvim
+.config/systemd/
+.config/zellij/
+.local/
+.pi_connect/
+.profile
+.rustup/
+.ssh/
+.sudo_as_admin_successful
+.terminfo/
+.zcompdump
+.zshrc
+dev/
 
 # --- Development Artifacts ---
 # Node
@@ -53,6 +77,8 @@ go/pkg/
 *.out
 
 # --- Editor Specific (Neovim/LazyVim) ---
+# don't want to track config under home location for versatility
+.config/nvim/
 # You track config, but ignore the data/state
 .local/share/nvim/
 .local/state/nvim/
