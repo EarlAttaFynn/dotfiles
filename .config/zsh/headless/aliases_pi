@@ -14,6 +14,17 @@ alias cfgc='cfg commit -m'
 alias cfgp='cfg push'
 
 alias rm='trash-put'
+
+alias syscfg='sudo git --git-dir=/opt/sys-config.git --work-tree=/'
+alias syscfgs='syscfg status'
+alias syscfga='syscfg add'
+alias syscfgc='syscfg commit -m'
+alias syscfgp='syscfg push'
+
+alias ts='sudo tailscale up --advertise-exit-node --accept-dns=false'
+
+alias rm='trash-put'
+
 # Cargo
 alias cr='cargo run'
 
