@@ -6,7 +6,7 @@
 [pull]
 	rebase = true
 [init]
-	defaultBranch = master
+	defaultBranch = main
 [user]
 	name = Earl Atta-Fynn
 	email = earl.atta.fynn@icloud.com
