@@ -11,4 +11,16 @@ alias config='/usr/bin/git --git-dir=$HOME/.cfg/ --work-tree=$HOME'
 # Cargo
 alias cr='cargo run'
 
+# docker
+alias ddown='docker compose down'
+alias ddownv='docker compose down -v'
+alias dup='docker compose up'
+alias dupd='docker compose up -d'
+alias dlogs='docker compose logs'
+alias lzd='lazydocker'
+
+#git
+alias lzg='lazygit'
+
+
 

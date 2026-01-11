@@ -1,5 +1,6 @@
 source ~/.config/zsh/prompt
 source ~/.config/zsh/functions
+source ~/.config/zsh/aliases
 
 source ~/.config/zsh/headless/shell_pi
 source ~/.config/zsh/headless/envs_pi

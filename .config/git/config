@@ -10,3 +10,5 @@
 [user]
 	name = Earl Atta-Fynn
 	email = earl.atta.fynn@icloud.com
+[safe]
+	directory = /home/icarus/dev/zephyr_dns
