@@ -1,17 +1,15 @@
-#############################################################
-# OMARCHY
-#############################################################
-# All the default Omarchy aliases and functions
-# (don't mess with the sourced file directly, just overwrite configs in this file)
-if [[ -d "$HOME/.local/share/omarchy" ]]; then
-  source ~/.local/share/omarchy/default/bash/aliases
-  source ~/.local/share/omarchy/default/bash/envs
-  source ~/.local/share/omarchy/default/bash/functions
-fi
-
-# ZSH-specific
-source ~/.config/zsh/shell
+# General ZSH-specific files, generally safe but not necessarily all functional on non-omarchy system
 source ~/.config/zsh/prompt
 source ~/.config/zsh/functions
-source ~/.config/zsh/aliases
-source ~/.config/zsh/envs
+
+if [[ -d "$HOME/.config/zsh/headless" && "$HOST" == "zephyr" ]]; then
+    for config_file in "$HOME/.config/zsh/headless"/*(N.); do
+        source "$config_file"
+    done
+fi
+
+if [[ -d "$HOME/.config/zsh/kesmer" && "$HOST" == "kesmer" ]]; then
+    for config_file in "$HOME/.config/zsh/kesmer"/*(N.); do
+        source "$config_file"
+    done
+fi

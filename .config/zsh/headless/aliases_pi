@@ -1,31 +1,11 @@
+# Zsh aliases for my headless systems
+#
+# currently used for "zephyr" pi server
+
+export EDITOR=vim
+
+alias docker='sudo docker'
 alias update='sudo apt update && sudo apt upgrade -y'
 
-alias ls='eza -Gla'
-alias zlj='zellij'
-alias v='nvim'
-alias vi='nvim'
-alias vic='nvim $HOME/.config/zsh/'
-
-alias config='/usr/bin/git --git-dir=$HOME/.cfg/ --work-tree=$HOME'
-alias cfg='/usr/bin/git --git-dir=$HOME/.cfg/ --work-tree=$HOME'
-alias cfgs='cfg status'
-alias cfga='cfg add'
-alias cfgc='cfg commit -m'
-alias cfgp='cfg push'
-
-alias rm='trash-put'
-
-alias syscfg='sudo git --git-dir=/opt/sys-config.git --work-tree=/'
-alias syscfgs='syscfg status'
-alias syscfga='syscfg add'
-alias syscfgc='syscfg commit -m'
-alias syscfgp='syscfg push'
-
 alias ts='sudo tailscale up --advertise-exit-node --accept-dns=false'
-
 alias rm='trash-put'
-
-# Cargo
-alias cr='cargo run'
-
-

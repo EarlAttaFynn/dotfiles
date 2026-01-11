@@ -1,5 +1,0 @@
-export PATH=$PATH:$HOME/.local/bin:/opt
-
-export RUSTUP_HOME=$HOME/dev/.rustup
-export CARGO_HOME=$HOME/dev/.cargo
-export SSH_PORT=56333

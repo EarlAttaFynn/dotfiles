@@ -3,7 +3,7 @@
 # ZSH
 #############################################################
 # Lines configured by zsh-newuser-install
-HISTFILE=~/.zsh/.histfile
+HISTFILE=~/.config/.zsh/histfile
 HISTSIZE=32369
 SAVEHIST=$HISTSIZE
 setopt autocd extendedglob nomatch notify
@@ -26,4 +26,15 @@ source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.pl
 source /usr/share/zsh/plugins/zsh-vi-mode/zsh-vi-mode.plugin.zsh
 source /usr/share/zsh/plugins/zsh-fzf-plugin/fzf.plugin.zsh
 source /usr/share/zsh/plugins/zsh-sudo/sudo.plugin.zsh
+
+#############################################################
+# OMARCHY
+#############################################################
+# All the default Omarchy aliases and functions
+# (don't mess with the sourced file directly, just overwrite configs in this file)
+if [[ -d "$HOME/.local/share/omarchy" ]]; then
+  source ~/.local/share/omarchy/default/bash/aliases
+  source ~/.local/share/omarchy/default/bash/envs
+  source ~/.local/share/omarchy/default/bash/functions
+fi
 
