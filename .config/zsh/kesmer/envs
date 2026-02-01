@@ -4,8 +4,3 @@ export RUSTUP_HOME=$HOME/dev/.rustup
 export CARGO_HOME=$HOME/dev/.cargo
 export SSH_PORT=56333
 
-# vpn proxy when off tailnet
-# export http_proxy="http://192.168.0.66:8888"
-# export https_proxy="http://192.168.0.66:8888"
-# export ftp_proxy="http://192.168.0.66:8888"
-# export no_proxy="localhost,127.0.0.1,192.168.0.0/16,10.0.0.0/8"

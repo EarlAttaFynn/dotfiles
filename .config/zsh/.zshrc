@@ -1,5 +1,6 @@
 # General ZSH-specific files, generally safe but not necessarily all functional on non-omarchy system
 source ~/.config/zsh/prompt
+source ~/.config/zsh/aliases
 source ~/.config/zsh/functions
 
 if [[ -d "$HOME/.config/zsh/headless" && "$HOST" == "zephyr" ]]; then

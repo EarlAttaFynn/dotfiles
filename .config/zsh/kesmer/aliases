@@ -29,9 +29,11 @@ alias syscfgp='syscfg push'
 
 # tailscale
 ## Toggle ON: Route everything home
-alias vpn-home='tailscale up && tailscale set --exit-node=ts-zephyr && echo "🔒 VPN: Full Tunnel to Zephyr ACTIVE"'
+alias vpn-home='tailscale up --ssh --exit-node=ts-zephyr --exit-node-allow-lan-access && tailscale status && echo "🔒 VPN: Full Tunnel to Zephyr ACTIVE"'
 ## Toggle OFF: Split Tunnel (DNS only)
-alias vpn-local='tailscale up && tailscale set --exit-node= && echo "⚡ VPN: Split Tunnel (DNS Only) ACTIVE"'
+alias vpn-local='tailscale up --exit-node= --ssh && tailscale status && echo "⚡ VPN: Split Tunnel (DNS Only) ACTIVE"'
+## Toggle DOWN: Turn off tailscale entirely
+alias vpn-off='tailscale down && echo tailscale is down'
 ## Check Status
 alias vpn-stat='tailscale status'
 
